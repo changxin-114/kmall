@@ -30,7 +30,20 @@ public class AttrServiceImpl implements AttrService {
 
     @Override
     public int addAttrInfo(PmsBaseAttrInfo pmsBaseAttrInfo) {
-        return pmsBaseAttrInfoMapper.insert(pmsBaseAttrInfo);
+        int i=0;
+        if(pmsBaseAttrInfo.getId()==null){
+            i=pmsBaseAttrInfoMapper.insert(pmsBaseAttrInfo);
+        }else{
+            i=pmsBaseAttrInfoMapper.updateByPrimaryKeySelective(pmsBaseAttrInfo);
+        }
+        //删除原来的属性值
+        PmsBaseAttrValueExample pmsBaseAttrValueExample=new PmsBaseAttrValueExample();
+        pmsBaseAttrValueExample.createCriteria().andAttrIdEqualTo(pmsBaseAttrInfo.getId());
+        i=pmsBaseAttrValueMapper.deleteByExample(pmsBaseAttrValueExample);
+        if(pmsBaseAttrInfo.getAttrValueList().size()>0){
+            i=pmsBaseAttrValueMapper.insertBatch(pmsBaseAttrInfo.getId(),pmsBaseAttrInfo.getAttrValueList());
+        }
+        return i;
     }
 
     @Override

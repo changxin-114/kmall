@@ -98,7 +98,9 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.kgc.kmall.bean.PmsBaseAttrInfo" >
+
+  <!--新增两属性useGeneratedKeys="true" keyProperty="id"-->
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.kgc.kmall.bean.PmsBaseAttrInfo" >
     insert into pms_base_attr_info (id, attr_name, catalog3_id, 
       is_enabled)
     values (#{id,jdbcType=BIGINT}, #{attrName,jdbcType=VARCHAR}, #{catalog3Id,jdbcType=BIGINT}, 
