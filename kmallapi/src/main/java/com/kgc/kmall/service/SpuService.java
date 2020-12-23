@@ -2,6 +2,7 @@ package com.kgc.kmall.service;
 
 import com.kgc.kmall.bean.PmsBaseSaleAttr;
 import com.kgc.kmall.bean.PmsProductInfo;
+import com.kgc.kmall.bean.PmsProductSaleAttr;
 
 import java.util.List;
 
@@ -11,5 +12,11 @@ public interface SpuService {
 
     //查询销售属性
     List<PmsBaseSaleAttr> baseSaleAttrList();
+
+    //添加商品属性spu
+    public Integer saveSpuInfo(PmsProductInfo pmsProductInfo);
+
+    //显示销售属性和属性值
+    List<PmsProductSaleAttr> spuSaleAttrList(Long spuId);
 
 }
