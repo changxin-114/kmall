@@ -1,15 +1,22 @@
 package com.kgc.kmall.bean;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.List;
-
+@ApiModel("pms商品销售属性实体类")
 public class PmsProductSaleAttr implements Serializable {
+    @ApiModelProperty("编号")
     private Long id;
 
+    @ApiModelProperty("商品id")
     private Long productId;
 
+    @ApiModelProperty("销售属性id")
     private Long saleAttrId;
 
+    @ApiModelProperty("销售属性名称(冗余)")
     private String saleAttrName;
 
     //销售属性值集合

@@ -80,5 +80,14 @@ public class SpuServiceImpl implements SpuService {
         return pmsProductSaleAttrList;
     }
 
+    @Override
+    public List<PmsProductImage> spuImageList(Long spuId) {
+        PmsProductImageExample example=new PmsProductImageExample();
+        PmsProductImageExample.Criteria criteria = example.createCriteria();
+        criteria.andProductIdEqualTo(spuId);
+        List<PmsProductImage> pmsProductImageList = pmsProductImageMapper.selectByExample(example);
+        return pmsProductImageList;
+    }
+
 
 }

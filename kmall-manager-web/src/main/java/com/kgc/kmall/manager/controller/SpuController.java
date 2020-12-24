@@ -1,8 +1,12 @@
 package com.kgc.kmall.manager.controller;
 
 import com.kgc.kmall.bean.PmsBaseSaleAttr;
+import com.kgc.kmall.bean.PmsProductImage;
 import com.kgc.kmall.bean.PmsProductInfo;
+import com.kgc.kmall.bean.PmsProductSaleAttr;
 import com.kgc.kmall.service.SpuService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.dubbo.config.annotation.Reference;
 import org.apache.commons.io.FileUtils;
@@ -18,10 +22,12 @@ import java.io.IOException;
 import java.util.List;
 @CrossOrigin
 @RestController
+@Api(tags = "商品spu管理相关接口",description = "提供商品管理相关的Rest API")
 public class SpuController {
     @Reference
     SpuService spuService;
 
+    @ApiOperation("查询sku接口")
     @RequestMapping("/spuList")
     public List<PmsProductInfo> pmsProductInfos(Long catalog3Id){
         List<PmsProductInfo> pmsProductInfos = spuService.spuList(catalog3Id);
@@ -31,6 +37,7 @@ public class SpuController {
     @Value("${fileServer.url}")
     String fileUrl;
 
+    @ApiOperation("图片上传接口")
     @RequestMapping("/fileUpload")
     public String fileUpload(@RequestParam("file")MultipartFile file) {
        try{
@@ -57,15 +64,34 @@ public class SpuController {
 
     }
 
+    @ApiOperation("特卖属性集合接口")
     @RequestMapping("/baseSaleAttrList")
     public List<PmsBaseSaleAttr> baseSaleAttrList(){
         List<PmsBaseSaleAttr> saleAttrList = spuService.baseSaleAttrList();
         return saleAttrList;
     }
 
+    @ApiOperation("新增spu信息接口")
     @RequestMapping("/saveSpuInfo")
     public String saveSpuInfo(@RequestBody PmsProductInfo pmsProductInfo){
         Integer saveSpuInfo = spuService.saveSpuInfo(pmsProductInfo);
         return saveSpuInfo>0?"success":"fail";
     }
+
+    @ApiOperation("查询spu特卖属性集合接口")
+    @RequestMapping("/spuSaleAttrList")
+    public List<PmsProductSaleAttr> spuSaleAttrList(Long spuId){
+        List<PmsProductSaleAttr> pmsProductSaleAttrList=spuService.spuSaleAttrList(spuId);
+        return pmsProductSaleAttrList;
+    }
+
+    @ApiOperation("查询spu图片集合接口")
+    @RequestMapping("/spuImageList")
+    public List<PmsProductImage> spuImageList(Long spuId){
+        List<PmsProductImage> pmsProductImageList = spuService.spuImageList(spuId);
+        return pmsProductImageList;
+    }
+
+
+
 }

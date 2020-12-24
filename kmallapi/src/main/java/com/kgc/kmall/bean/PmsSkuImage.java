@@ -1,18 +1,27 @@
 package com.kgc.kmall.bean;
 
-import java.io.Serializable;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+import java.io.Serializable;
+@ApiModel("pmssku图片实体类")
 public class PmsSkuImage implements Serializable {
+    @ApiModelProperty("编号")
     private Long id;
 
+    @ApiModelProperty("商品id")
     private Long skuId;
 
+    @ApiModelProperty("图片名称（冗余）")
     private String imgName;
 
+    @ApiModelProperty("图片路径(冗余)")
     private String imgUrl;
 
+    @ApiModelProperty("商品图片id")
     private Long spuImgId;
 
+    @ApiModelProperty("是否默认")
     private String isDefault;
 
     public Long getId() {

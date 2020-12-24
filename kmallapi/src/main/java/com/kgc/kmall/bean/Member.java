@@ -1,45 +1,67 @@
 package com.kgc.kmall.bean;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
-
+@ApiModel("会员实体类")
 public class Member implements Serializable {
+    @ApiModelProperty("会员编号")
     private Long id;
 
+    @ApiModelProperty("会员等级编号")
     private Long memberLevelId;
 
+    @ApiModelProperty("用户名")
     private String username;
 
+    @ApiModelProperty("密码")
     private String password;
 
+    @ApiModelProperty("昵称")
     private String nickname;
 
+    @ApiModelProperty("手机号码")
     private String phone;
 
+    @ApiModelProperty("账号启用状态")
     private Integer status;
 
+    @ApiModelProperty("注册时间")
     private Date createTime;
 
+    @ApiModelProperty("头像")
     private String icon;
 
+    @ApiModelProperty("性别")
     private Integer gender;
 
+    @ApiModelProperty("生日")
     private Date birthday;
 
+    @ApiModelProperty("所在城市")
     private String city;
 
+    @ApiModelProperty("职业")
     private String job;
 
+    @ApiModelProperty("个性签名")
     private String personalizedSignature;
 
+    @ApiModelProperty("用户来源")
     private Integer sourceType;
 
+    @ApiModelProperty("积分")
     private Integer integration;
 
+    @ApiModelProperty("成长值")
     private Integer growth;
 
+    @ApiModelProperty("剩余抽奖次数")
     private Integer luckeyCount;
 
+    @ApiModelProperty("历史积分数量")
     private Integer historyIntegration;
 
     public Long getId() {

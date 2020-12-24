@@ -1,14 +1,21 @@
 package com.kgc.kmall.bean;
 
-import java.io.Serializable;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+import java.io.Serializable;
+@ApiModel("pms属性返回值实体类")
 public class PmsBaseAttrValue implements Serializable {
+    @ApiModelProperty("编号")
     private Long id;
 
+    @ApiModelProperty("属性值名称")
     private String valueName;
 
+    @ApiModelProperty("属性id")
     private Long attrId;
 
+    @ApiModelProperty("启用或停用")
     private String isEnabled;
 
     public Long getId() {

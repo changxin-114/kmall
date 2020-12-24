@@ -1,6 +1,7 @@
 package com.kgc.kmall.service;
 
 import com.kgc.kmall.bean.PmsBaseSaleAttr;
+import com.kgc.kmall.bean.PmsProductImage;
 import com.kgc.kmall.bean.PmsProductInfo;
 import com.kgc.kmall.bean.PmsProductSaleAttr;
 
@@ -19,4 +20,6 @@ public interface SpuService {
     //显示销售属性和属性值
     List<PmsProductSaleAttr> spuSaleAttrList(Long spuId);
 
+    //显示图片
+    List<PmsProductImage> spuImageList(Long spuId);
 }
