@@ -11,6 +11,9 @@
     <result column="tm_id" property="tmId" jdbcType="BIGINT" />
     <result column="catalog3_id" property="catalog3Id" jdbcType="BIGINT" />
     <result column="sku_default_img" property="skuDefaultImg" jdbcType="VARCHAR" />
+
+    <collection property="skuImageList" select="com.kgc.kmall.manager.mapper.PmsSkuImageMapper.selectBySkuId" ofType="com.kgc.kmall.bean.PmsSkuImage"  column="id"></collection>
+
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >

@@ -22,4 +22,7 @@ public interface SpuService {
 
     //显示图片
     List<PmsProductImage> spuImageList(Long spuId);
+
+    //根据sku的销售属性显示页面上的颜色和容量
+    List<PmsProductSaleAttr> spuSaleAttrListIsCheck(Long spuId,Long skuId);
 }
