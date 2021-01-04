@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 @ApiModel("pms商品销售属性返回值实体类")
-public class pmsProductSaleAttrValue implements Serializable {
+public class PmsProductSaleAttrValue implements Serializable {
     @ApiModelProperty("编号")
     private Long id;
 

@@ -20,7 +20,7 @@ public class SpuServiceImpl implements SpuService {
     @Resource
     PmsProductSaleAttrMapper pmsProductSaleAttrMapper;
     @Resource
-    pmsProductSaleAttrValueMapper pmsProductSaleAttrValueMapper;
+    PmsProductSaleAttrValueMapper pmsProductSaleAttrValueMapper;
 
     @Override
     public List<PmsProductInfo> spuList(Long catalog3Id) {
@@ -48,7 +48,7 @@ public class SpuServiceImpl implements SpuService {
             //保存销售属性
             for (PmsProductSaleAttr pmsProductSaleAttr : pmsProductInfo.getSpuSaleAttrList()) {
                 pmsProductSaleAttr.setProductId(id);
-                for (pmsProductSaleAttrValue pmsProductSaleAttrValue : pmsProductSaleAttr.getSpuSaleAttrValueList()) {
+                for (PmsProductSaleAttrValue pmsProductSaleAttrValue : pmsProductSaleAttr.getSpuSaleAttrValueList()) {
                     pmsProductSaleAttrValue.setProductId(id);
                     pmsProductSaleAttrValueMapper.insert(pmsProductSaleAttrValue);
                 }
@@ -69,12 +69,12 @@ public class SpuServiceImpl implements SpuService {
         criteria.andProductIdEqualTo(spuId);
         List<PmsProductSaleAttr> pmsProductSaleAttrList = pmsProductSaleAttrMapper.selectByExample(example);
         for (PmsProductSaleAttr pmsProductSaleAttr : pmsProductSaleAttrList) {
-            pmsProductSaleAttrValueExample example1=new pmsProductSaleAttrValueExample();
-            pmsProductSaleAttrValueExample.Criteria criteria1 = example1.createCriteria();
+            PmsProductSaleAttrValueExample example1=new PmsProductSaleAttrValueExample();
+            PmsProductSaleAttrValueExample.Criteria criteria1 = example1.createCriteria();
             criteria1.andSaleAttrIdEqualTo(pmsProductSaleAttr.getSaleAttrId());
             criteria1.andProductIdEqualTo(spuId);
 
-            List<pmsProductSaleAttrValue> pmsProductSaleAttrValueList = pmsProductSaleAttrValueMapper.selectByExample(example1);
+            List<PmsProductSaleAttrValue> pmsProductSaleAttrValueList = pmsProductSaleAttrValueMapper.selectByExample(example1);
             pmsProductSaleAttr.setSpuSaleAttrValueList(pmsProductSaleAttrValueList);
         }
         return pmsProductSaleAttrList;

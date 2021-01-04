@@ -30,4 +30,5 @@ public interface PmsProductSaleAttrMapper {
     int updateByPrimaryKey(PmsProductSaleAttr record);
 
     List<PmsProductSaleAttr> spuSaleAttrListIsCheck(@Param("spuId") Long spuId,@Param("skuId") Long skuId);
+
 }
