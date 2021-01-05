@@ -26,6 +26,7 @@
     <dubbo.version>2.7.1</dubbo.version>
     <fastjson.version>1.2.46</fastjson.version>
     <jedis.version>2.9.0</jedis.version>
+    <commons.lang3>2.7.1</commons.lang3>
   </properties>
 
   <!--springboot父依赖-->
@@ -73,6 +74,13 @@
         <artifactId>jedis</artifactId>
         <version>${jedis.version}</version>
       </dependency>
+
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons.lang3}</version>
+      </dependency>
+
 
     </dependencies>
   </dependencyManagement>

@@ -28,4 +28,8 @@ public interface PmsBaseAttrInfoMapper {
     int updateByPrimaryKeySelective(PmsBaseAttrInfo record);
 
     int updateByPrimaryKey(PmsBaseAttrInfo record);
+
+    //根据多个valueid查询平台属性名和值
+    //正常情况下单参数不用添加@param注解，但是因为此参数的传递是使用${}因此不能省略
+    List<PmsBaseAttrInfo> selectAttrInfoValueListByValueId(@Param("valueIdStr") String valueIdStr);
 }
