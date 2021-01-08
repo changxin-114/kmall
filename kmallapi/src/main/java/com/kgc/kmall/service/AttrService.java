@@ -14,5 +14,5 @@ public interface AttrService {
     //获取平台属性以便修改
     List<PmsBaseAttrValue> getAttrValueList(Long attrId);
     //根据valueid的集合查询平台属性名和值
-//    List<PmsBaseAttrInfo> selectAttrInfoValueListByValueId(Set<Long> valueIds);
+    List<PmsBaseAttrInfo> selectAttrInfoValueListByValueId(Set<Long> valueIds);
 }
